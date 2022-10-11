@@ -17,7 +17,7 @@
       <span class="title">{{ storeName }}</span>
     </div>
     <ul class="item-list">
-      <li class="cart-item" v-for="item in store.items">
+      <li class="cart-item" v-for="(item, index) in store.items" :key="index">
         <span
           class="item-check-icon check-icon iconfont"
           :class="{
@@ -39,7 +39,7 @@
           <div class="item-name">{{ item.name }}</div>
           <div class="item-amount">
             <span class="item-count">x{{ item.num }}</span>
-            <span class="price">￥{{ item.price }}</span>
+            <span class="price">￥{{ item.price.toFixed(2) }}</span>
           </div>
         </span>
       </li>

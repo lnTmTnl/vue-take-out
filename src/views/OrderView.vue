@@ -3,7 +3,11 @@
     <Header :title="'订单'"></Header>
     <div class="main-container">
       <div class="order-list" v-if="orderInfos.length > 0">
-        <OrderItem v-for="item in orderInfos" :orderInfo="item"></OrderItem>
+        <OrderItem
+          v-for="(item, index) in orderInfos"
+          :orderInfo="item"
+          :key="index"
+        ></OrderItem>
       </div>
     </div>
     <Bottom :activeIconIndex="1"></Bottom>
@@ -22,13 +26,14 @@ orders().then((res) => {
   console.log(res.data.data)
   const orders = []
   res.data.data.forEach((order) => {
+    const price = order.total_price.toFixed(2)
     orders.push({
       id: order.id,
       items: order.foods,
       storeName: order.restaurant.name,
       storeId: order.restaurant_id,
       storePic: order.restaurant.pic_url,
-      price: order.total_price,
+      price,
       status: order.status,
     })
   })

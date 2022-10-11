@@ -7,7 +7,11 @@
         <span class="edit-btn" @click="isEditing = !isEditing">编辑</span>
       </div>
       <div class="address-list" v-if="addressInfos.length > 0">
-        <div class="address-item" v-for="item in addressInfos">
+        <div
+          class="address-item"
+          v-for="(item, index) in addressInfos"
+          :key="index"
+        >
           <div class="address-info">
             <div class="address-text">{{ item.address }}</div>
             <div class="user-info">

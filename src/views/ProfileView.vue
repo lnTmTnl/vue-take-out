@@ -18,6 +18,7 @@
         <span
           class="profile-item item"
           v-for="(item, index) in profileItemList"
+          :key="index"
           @click="$router.push(item.path)"
         >
           <span class="iconfont item-icon">{{ item.icon }}</span>
@@ -27,7 +28,11 @@
       <div class="assets-bar">
         <div class="title">我的资产</div>
         <div class="asset-item-list item-list">
-          <span class="asset-item item" v-for="(item, index) in assetItemList">
+          <span
+            class="asset-item item"
+            v-for="(item, index) in assetItemList"
+            :key="index"
+          >
             <span class="iconfont item-icon">{{ item.icon }}</span>
             <p class="item-name">{{ item.itemName }}</p>
           </span>
@@ -39,6 +44,7 @@
           <span
             class="recommandation-item item"
             v-for="(item, index) in recommandationItemList"
+            :key="index"
           >
             <span class="iconfont item-icon">{{ item.icon }}</span>
             <p class="item-name">{{ item.itemName }}</p>

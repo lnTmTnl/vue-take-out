@@ -5,6 +5,7 @@
         class="star white-star iconfont"
         :style="{ 'font-size': starSize + 'px' }"
         v-for="i in 5"
+        :key="i"
         >&#xe876;</span
       >
       <div class="filled-stars">
@@ -12,6 +13,7 @@
           class="star filled-star iconfont"
           :style="{ 'font-size': starSize + 'px' }"
           v-for="i in parseInt(starPoint)"
+          :key="i"
           >&#xe876;</span
         >
         <span

@@ -3,19 +3,24 @@
     <div class="main-container">
       <el-scrollbar class="sider-scroll">
         <div class="tab-sider">
-          <div class="tab tab-active" v-for="category in menu">
+          <div
+            class="tab tab-active"
+            v-for="(category, index) in menu"
+            :key="index"
+          >
             {{ category.name }}
           </div>
         </div>
       </el-scrollbar>
 
       <el-scrollbar class="item-list">
-        <div class="list-part" v-for="category in menu">
+        <div class="list-part" v-for="(category, index) in menu" :key="index">
           <div class="part-title">
             {{ category.name }}
             <StoreMenuItem
-              v-for="item in category.spus"
+              v-for="(item, index) in category.spus"
               :item="item"
+              :key="index"
               @numberChanged="changeOrder"
             ></StoreMenuItem>
           </div>

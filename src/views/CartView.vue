@@ -5,8 +5,9 @@
     >
     <div class="main-container">
       <AmountStoreItemList
-        v-for="item in cartItems"
+        v-for="(item, index) in cartItems"
         :store="item"
+        :key="index"
         @amountPriceChanged="calculatePrice"
       ></AmountStoreItemList>
     </div>

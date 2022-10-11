@@ -12,13 +12,14 @@
       <span class="order-state">{{ orderInfo.status }}</span>
     </div>
     <ul class="purchase-item-list">
-      <li v-for="item in orderInfo.items">
+      <li v-for="(item, index) in orderInfo.items" :key="index">
         <span class="name">{{ item.name }}</span>
         <span class="count">x{{ item.num }}</span>
       </li>
     </ul>
     <div class="amount-bar">
-      共{{ orderInfo.items.length }}件商品, 实付 ￥ {{ orderInfo.price }}
+      共{{ orderInfo.items.length }}件商品, 实付 ￥
+      {{ orderInfo.price }}
     </div>
     <div class="btn-bar">
       <button class="reorder-btn">再来一单</button>
